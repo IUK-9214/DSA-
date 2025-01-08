@@ -3,7 +3,7 @@ using namespace std;
 struct employees{
 	string name;
 	int age;
-	int salary;
+	string salary;
 	employees*next;
 };
 int main(){
@@ -36,24 +36,56 @@ int main(){
 		cout<<"Enter your name : "<<i<<endl;
 		cin>>current->name;
 		cout<<"Enter your age : "<<endl;
-		cin>>current->name;
+		cin>>current->age;
 		cout<<"Enter your salary : "<<endl;
-		cin>>current->name;
+		cin>>current->salary;
 		current=current->next;
-		
+		i++;
 	}
 		int z=1;
 	current=name1;
 	while(current!=NULL){
-		cout<<" your name : "<<z<<endl;
-		cout<<current->name;
-		cout<<" your age : "<<endl;
-		cout<<current->name;
-		cout<<" your salary : "<<endl;
-		cout<<current->name;
+		cout<<" your name : "<<z<<" ";
+		cout<<current->name<<endl;
+		cout<<" your age : "<<" ";
+		cout<<current->age<<endl;
+		cout<<" your salary : "<<" ";
+		cout<<current->salary<<endl;
 		current=current->next;
-		
+		z++;
 	}
+	//addition at the top and at the end
+	employees*name4=new employees;
+	employees*age4=new employees;
+	employees*salary4=new employees;
+	
+	current=name1;
+	if (current==NULL){
+		current=name4;
+	
+		cout<<"enter your name : ";
+		cin>>current->name;
+		cout<<"enter your age : ";
+		cin>>current->age;
+		cout<<"enter your salary : ";
+		cin>>current->salary;
+		current->next=NULL;
+	}
+	else{
+		while (current!=NULL){
+			current=current->next;
+		}
+		current=name4;	
+		cout<<"enter your name : ";
+		cin>>current->name;
+		cout<<"enter your age : ";
+		cin>>current->age;
+		cout<<"enter your salary : ";
+		cin>>current->salary;
+		name4->next=NULL;
+	
+	}
+
 	
 	return 0;
 }
