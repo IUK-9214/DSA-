@@ -14,17 +14,13 @@ using namespace std;
 class oop
 {
 public: 
-string name ;
-int age ;
-string contact;
+int x ;
 
 }; 
 int main()
 {
 oop x1;//classs name and space then declare the name of the object
-x1.name="ibad";
-x1.age=20;
-x1.contact="03411850048";
-cout<<"name is : "<<x1.name<<endl<<" age : "<<x1.age<<endl<<" contact number : "<<x1.contact<<endl;
-return 0;
+x1.x=2;
+cout<<x1.x;
+    return 0;
 }
