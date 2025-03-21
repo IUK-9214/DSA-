@@ -1,30 +1,48 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-// //access specifier
-// class oop{
-// int x :=> by defualt in the class teh varible and the methods are private so it is neccssary to declare the access specifer
-// public:
-// //public access specfier the attribute and the methods can be use out side  and inside the class
-// private:
-// //can not be access out side of the class
-// protected:
-// //also they cannot be access however in inheritence
-// }
 
-class oop
-{
-public: 
-string name ;
-int age ;
-string contact;
+class Solution {
+public:
+    void applied_function(int arr[], int n) {
+        // Step 1: Apply merging operation
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i] == arr[i + 1] && arr[i] != 0) {
+                arr[i] *= 2;
+                arr[i + 1] = 0;
+            }
+        }
 
-}; 
-int main()
-{
-oop x1;//classs name and space then declare the name of the object
-x1.name="ibad";
-x1.age=20;
-x1.contact="03411850048";
-cout<<"name is : "<<x1.name<<endl<<" age : "<<x1.age<<endl<<" contact number : "<<x1.contact<<endl;
-return 0;
+        int array[n]; 
+        int index = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0) {
+                array[index++] = arr[i];
+            }
+        }
+
+        while (index < n) {
+            array[index++] = 0;
+        }
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = array[i];
+        }
+
+        cout << "Final Array: ";
+        for (int j = 0; j < n; j++) {
+            cout << arr[j] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Solution o;
+
+    int num[] = {2, 2, 0, 4, 4, 8}; 
+    int n = sizeof(num) / sizeof(num[0]); 
+    o.applied_function(num, n); 
+
+    return 0;
 }
