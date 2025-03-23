@@ -17,9 +17,9 @@ void TV::input_name(){
     cin>>retailprice;
 }
 void TV::display(){
-    cout<<"enter the name of the brand : "<<brandname<<endl;
-    cout<<"enter the model name : "<<model;
-    cout<<"enter the retailprice "<<retailprice;
+    cout<<" name of the brand : "<<brandname<<endl;
+    cout<<"model name : "<<model;
+    cout<<" retailprice "<<retailprice;
 }
 int main (){
     TV ob;
