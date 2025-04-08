@@ -6,9 +6,20 @@ class Solution {
     public:
         int minimumOperations(vector<int>& nums) {
             int operations=0;
-            while(true){
-                unordered_set<int> e(nums.begin(),nums.end());
-                if (e.size()==nums.size()){
+            unordered_set<int> e ;
+            int r=0;
+            while(!nums.empty()){
+                e.clear();
+                bool dup=false;
+                for ( int i : nums){
+                    if (e.count(i)){
+                        dup=true;
+                        break;
+                    }
+                    e.insert(i);
+
+                }
+                if (!dup){
                     break;
                 }
                 int remove=min(3, (int)nums.size());
