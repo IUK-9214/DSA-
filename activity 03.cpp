@@ -12,9 +12,7 @@ int a,b;
     cout<<"the square root of a : 128 = "<< sqrt(a)<<endl;
     cout<<"the square root of b : 4 = "<< sqrt(b)<<endl;
  }
-
 };
-
 int main (){
 activity y;
 y.square();
