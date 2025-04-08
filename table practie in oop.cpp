@@ -1,11 +1,9 @@
 #include<iostream>
 #include<iostream>
 using namespace std;
-
 class table{
 public :
 int a;
-
 table(){
 a=2;
 }
@@ -14,7 +12,6 @@ void dipaly_table(){
         cout<<a<<" * "<<i<<" = "<<2*i<<endl;
     }
 }
-
 };
 int main (){
 table  b;
