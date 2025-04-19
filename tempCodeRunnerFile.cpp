@@ -1,29 +1,48 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-class Solution {
-    public:
-        int removeDuplicates(vector<int>& nums) {
 
-            if (nums.size()==0){
-                return 0;
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int n = digits.size();
+        bool carry = true;
+
+        for (int i = n - 1; i >= 0; i--) {
+            if (digits[i] == 9 && carry) {
+                digits[i] = 0;
+            } else if (carry) {
+                digits[i] += 1;
+                carry = false;
+                break;
             }
-            int k=1;
-            for (int i=1;i<nums.size();i++){
-                if (nums[i]!=nums[i-1]){
-                    nums[k]=nums[i];
-                    k++;
-                }
-                
-            }
-        return k;
         }
-    };
-int  main (){
-    Solution ab;
-    vector<int>nums={1,2,2,4,5,6,6,7};
-    for (int i=0;i<nums.size();i++){
-                cout<<nums[i]<<" ";}
-    cout<<endl<<ab.removeDuplicates(nums);
+
+        // If carry is still true, that means number was all 9s like [9,9,9]
+        if (carry) {
+            vector<int> result(n + 1);
+            result[0] = 1;
+            for (int i = 0; i < n; i++) {
+                result[i + 1] = digits[i];
+            }
+            return result;
+        }
+
+        return digits;
+    }
+};
+
+int main () {
+    Solution sol;
+    vector<int> digits = {3, 9, 9};
+
+    vector<int> result = sol.plusOne(digits);  // Corrected type
+
+    cout << "Result after plus one: ";
+    for (int num : result) {
+        cout << num << " ";
+    }
+    cout << endl;
+
     return 0;
 }
