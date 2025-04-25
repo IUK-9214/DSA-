@@ -8,8 +8,13 @@ class Solution {
             int MinPrice=prices[0];
             int MaxProfit=0;
             for (int i=0;i<prices.size();i++){
-                MaxProfit=max(MaxProfit,prices[i]-MinPrice);
+                int cal=prices[i]-MinPrice;
+              if ( MaxProfit<cal){
+                MaxProfit=cal;
+              }
+              else{
                 MinPrice=min(MinPrice,prices[i]);
+              }
             }
        return MaxProfit;
         }
