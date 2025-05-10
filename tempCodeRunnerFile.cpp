@@ -1,30 +1,32 @@
-#include<vector>
 #include<iostream>
+#include<vector>
 using namespace std;
 class Solution {
-    public:
-        int majorityElement(vector<int>& nums) {
-            int count = 0;
-            int candidate = 0;
-    
-            for (int num : nums) {
-                if (count == 0) {
-                    candidate = num;
-                    count=1;
-                }
-                else if(num == candidate) {
-                    count += 1 ;
+public:
+    bool containsDuplicate(vector<int>& nums) {
+       int n=nums.size();
+       
+      
+        for(int i=0;i<n;i++){
+            if (n==0 &&nums[n]==0){
+        return false;
+       }
+       else{
+        if (nums[i]==nums[n-1]){
+                return true;
             }
             else{
-                count-= 1;
+                n--;
             }
+       }
+            
         }
-            return candidate; }
-    };
+        return false;
+    }
+};
 int main (){
-Solution ab;
-vector<int>nums={3,4,4,4,4,4,5,5,5,5,5,5};
-cout<<ab.majorityElement(nums);
-
+Solution sb;
+vector <int>nums={0};
+cout<<sb.containsDuplicate(nums);
     return 0;
 }
