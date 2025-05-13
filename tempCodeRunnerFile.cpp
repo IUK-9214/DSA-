@@ -1,38 +1,30 @@
 #include <iostream>
-#include <vector>
-#include <queue>
-#include <cmath>
 using namespace std;
 
-class Solution {
-public:
-    long long pickGifts(vector<int>& gifts, int k) {
-      priority_queue<int> maxHeap;
-      for (int gift : gifts){
-        maxHeap.push(gift);
-      }
-      while(k--&&!maxHeap.empty()){
-        int top =maxHeap.top();
-        maxHeap.pop();
-        int reduce =(int)sqrt(top);
-        maxHeap.push(reduce);
-      }
-      long long total=0;
-      while (!maxHeap.empty()){
-        total+=maxHeap.top();
-        maxHeap.pop();
-      }
-      return total;
+bool isPalindrome(int x) {
+    if (x < 0) return false; // Step 2
 
-      }
-    
-    
-};
+    int original = x; // Step 3
+    int rev = 0;
+
+    while (x != 0) {  // Step 4
+        int digit = x % 10; //here reminder is save in the digit
+        rev = rev * 10 + digit;//use of the that digit in the rev 
+        x = x / 10;//update the x value
+    }
+
+     return (original == rev) ? true :false;// Step 5
+}
 
 int main() {
-    Solution sol;
-    vector<int> gifts = {25, 64, 9, 4, 100};
-    int k = 4;
-    cout << sol.pickGifts(gifts, k) << endl;  // Example output
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (isPalindrome(num))
+        cout << num << " is a palindrome." << endl;
+    else
+        cout << num << " is not a palindrome." << endl;
+
     return 0;
 }
