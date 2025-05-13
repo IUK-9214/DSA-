@@ -1,32 +1,38 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <cmath>
 using namespace std;
+
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-       int n=nums.size();
-       
-      
-        for(int i=0;i<n;i++){
-            if (n==0 &&nums[n]==0){
-        return false;
-       }
-       else{
-        if (nums[i]==nums[n-1]){
-                return true;
-            }
-            else{
-                n--;
-            }
-       }
-            
-        }
-        return false;
-    }
+    long long pickGifts(vector<int>& gifts, int k) {
+      priority_queue<int> maxHeap;
+      for (int gift : gifts){
+        maxHeap.push(gift);
+      }
+      while(k--&&!maxHeap.empty()){
+        int top =maxHeap.top();
+        maxHeap.pop();
+        int reduce =(int)sqrt(top);
+        maxHeap.push(reduce);
+      }
+      long long total=0;
+      while (!maxHeap.empty()){
+        total+=maxHeap.top();
+        maxHeap.pop();
+      }
+      return total;
+
+      }
+    
+    
 };
-int main (){
-Solution sb;
-vector <int>nums={0};
-cout<<sb.containsDuplicate(nums);
+
+int main() {
+    Solution sol;
+    vector<int> gifts = {25, 64, 9, 4, 100};
+    int k = 4;
+    cout << sol.pickGifts(gifts, k) << endl;  // Example output
     return 0;
 }
