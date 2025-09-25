@@ -5,15 +5,25 @@
 
 #include <iostream>
 #include <vector>
+
+#include <algorithm>
 using namespace std;
 
-
-
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        for (int &x : nums) {
+    x = x * x;   
+}
+sort(nums.begin(), nums.end());  
+    return nums;
+    }
+};
 
 int main() {
     vector<int> nums = {1, 2, 3, 4};
     Solution ab;
-    vector<int> result = ab.runningSum(nums);
+    vector<int> result = ab.sortedSquares(nums);
 
     // print the result
     for (int val : result) {
