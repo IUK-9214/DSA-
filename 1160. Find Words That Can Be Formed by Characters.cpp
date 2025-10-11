@@ -45,3 +45,31 @@ public:
         return total;
     }
 };
+
+
+
+
+// another solution 
+unordered_map<char,int>freq;
+for(char c :chars){
+    freq[c]++;
+}
+
+int total=0;
+for(char  word:words){
+    unordered_map<char,int>temp;
+    bool good=true;
+
+    for(char s:word){
+        temp[s]++;
+        if(temp[s]>freq[s]){
+            good=false;
+            break;
+        }
+    }
+    if(good){
+        total+=word.size()
+    }
+    
+}
+return total;
